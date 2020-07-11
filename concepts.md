@@ -269,3 +269,120 @@ section{
 }
 ```
 
+
+
+# Positioning
+
+```html
+<section id="sewer">
+	<div id="turtle">
+        Donatello
+    </div>
+</section>
+
+<section id="daily-planet">
+	<div id="clark">
+        Superman
+    </div>
+</section>
+
+<section id="lex-luther">
+	<div id="clark">
+        Superman
+    </div>
+</section>
+
+<section id="daily-bugle">
+	<div id="peter">
+        Spiderman
+    </div>
+</section>
+```
+
+```css
+section{
+    margin: 10px;
+    padding: 20px;
+    background: #ccc;
+    width: 600px;
+}
+
+div{
+    width: 100px;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+#turtle{
+    background: rgba(0,255,0,0.75);
+    position: relative;
+    top: 30px;
+    left: 50px;
+}
+
+#clark{
+    background: rgba(0,0,255,0.75);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+#lex-luther{
+    position: relative;
+}
+
+#peter{
+    background: rgba(255, 0, 0, 0.75);
+    position: fixed;
+    top: 0;
+    right: 120px;
+}
+```
+
+
+
+# Z-Index
+
+z-index = 0  (Default Value of every element)
+
+z - index < 0 (Will go behind)
+
+z - index > 0 (Will go in front)
+
+```html
+<div id="a"> A </div>
+<div id="b"> B </div>
+<div id="c"> C </div>
+```
+
+```css
+div{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    border: 1px solid #000;
+}
+
+#a{
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: rgba(255, 0, 0, 0.75);
+}
+
+#b{
+    top: -25px;
+    left: 25px;
+    z-index: 2;
+    background: rgba(0, 255, 0, 0.75);
+}
+
+#c{
+    top: -50px;
+    left: 25px;
+    z-index: 3;
+    background: rgba(0, 0, 255, 0.75);
+}
+```
+
