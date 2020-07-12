@@ -386,3 +386,95 @@ div{
 }
 ```
 
+
+
+# Responsive Media
+
+**Images**, **Tables**, **Form Inputs**, **Video** and **Audio** are usually set to fluid widths (**width: 100%; max-width: 100%**) so as to allow this content to scale up or down on different devices.
+
+```css
+img, table, form, input, video, audio{
+    width: 100%;
+    max-width: 100%;
+}
+```
+
+Example:
+
+```html
+<section>
+	<img src="http://placekitten.com/800/800" alt="kitty">
+</section>
+```
+
+```css
+section{
+    width: 100%;
+}
+
+img{
+    width: 100%;
+    max-width: 100%;
+}
+```
+
+
+
+Note: For other types of elements, media queries are useful.
+
+
+
+# Responsive Layout
+
+```css
+.wrapper{
+    width: 960px;
+}
+
+@media only screen and (max-width: 980px){
+    .wrapper{
+        width: 90%;
+    }
+}
+```
+
+We need **fluid layout for mobile devices** and a **fixed layout for desktops**.
+
+One way to do this in CSS is to use a wrapper class, one class that wraps all core content of our site. If we want to make changes that affect all of that content using a media query, we can simply modify the wrapper class. 
+
+In code above, we are setting default size of wrapper element to 960px. Then we are changing size to a fluid 90% of screen width when screen size gets below 980px. This will give wrapper flexibility to shrink to fit on smaller screens.
+
+A concept becoming more prevalent is making website for smaller screen size first then adding in media queries to handle larger and larger screen sizes.
+
+```css
+.wrapper{
+    width: 90%;
+}
+
+@media only screen and (min-width: 980px){
+    .wrapper{
+        width: 960px;
+    }
+}
+```
+
+In above code, we are setting default size of our wrapper element to 90% width of screen size so it will grow and shrink automatically. Then we are changing wrapper size to fixed 960 px when screen size gets above 980px;	
+
+
+
+Above thing will work when website has no columns. With websites having columns,
+
+```css
+.column{
+    width: 33.333%;
+    float: left;
+}
+
+@media only screen and (max-width: 600px){
+    .column{
+        width: 100%;
+        float: none;
+    }
+}
+```
+
